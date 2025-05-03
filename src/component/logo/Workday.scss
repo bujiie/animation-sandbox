@@ -1,0 +1,33 @@
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+#workday-logo {
+    &__arch, &__letter-w, &__letter-d, &__letter-a, &__letter-y, &__letter-o, &__letter-k, &__letter-r {
+        fill: none;
+        stroke-width: 2px;
+        //we divide the line in multiple dashes (some full and other empty)
+        //these dashes have 1000px in length
+        //so there are one dash full of 1000px of length and then one dash empty of 1000px of length and so on and so forth
+        stroke-dasharray: 1000;
+
+        //we change the position of the dashes
+        stroke-dashoffset: 1000;
+
+        //now we animate the dashoffset
+        //we reduce the offset of each dash so we have the impression that the dashes are moving
+        animation: dash 5s linear forwards infinite;
+    }
+
+    &__arch {
+        stroke: #FC5805;
+    }
+
+    &__letter-w, &__letter-d, &__letter-a, &__letter-y, &__letter-o, &__letter-k, &__letter-r {
+        stroke: #0F2E66;
+    }
+}
